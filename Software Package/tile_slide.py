@@ -17,7 +17,7 @@
 from __future__ import print_function
 import json
 
-OPENSLIDE_PATH = r'B:/Ben/ssl-play/openslide/bin'
+OPENSLIDE_PATH = r'/path/to/openslide/bin'
 import os
 if hasattr(os, 'add_dll_directory'):
     # Windows
