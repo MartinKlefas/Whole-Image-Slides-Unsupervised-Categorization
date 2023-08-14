@@ -10,7 +10,7 @@ from sklearn.preprocessing import StandardScaler
 
 # Evaluation
 from sklearn import metrics
-from skimage.external import tifffile
+import tifffile
 
 from sklearn.decomposition import PCA               # 2) PCA
 

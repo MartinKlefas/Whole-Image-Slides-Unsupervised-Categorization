@@ -16,7 +16,16 @@
 '''
 from __future__ import print_function
 import json
-import openslide
+
+OPENSLIDE_PATH = r'B:/Ben/ssl-play/openslide/bin'
+import os
+if hasattr(os, 'add_dll_directory'):
+    # Windows
+    with os.add_dll_directory(OPENSLIDE_PATH):
+        import openslide
+else:
+    import openslide
+    
 from openslide import open_slide, ImageSlide
 from openslide.deepzoom import DeepZoomGenerator
 from optparse import OptionParser
@@ -32,9 +41,9 @@ import time
 import os
 import sys
 import dicom
-from scipy.misc import imsave
-from scipy.misc import imread
-from scipy.misc import imresize
+from skimage.io import imsave
+from skimage.io import imread
+from skimage.transform import resize as imresize
 from tqdm import tqdm
 from xml.dom import minidom
 from PIL import Image, ImageDraw
@@ -157,6 +166,11 @@ class DeepZoomImageTiler(object):
             print(self._basename + " - No Obj information found")
             print(self._ImgExtension)
             if ("jpg" in self._ImgExtension) | ("dcm" in self._ImgExtension):
+                #Objective = self._ROIpc
+                Objective = 1.
+                Magnification = Objective
+                print("input is jpg - will be tiled as such with %f" % Objective)
+            elif("png" in self._ImgExtension) | ("dcm" in self._ImgExtension):
                 #Objective = self._ROIpc
                 Objective = 1.
                 Magnification = Objective

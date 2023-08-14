@@ -13,7 +13,7 @@ from skimage.color import rgb2hed
 from sklearn.preprocessing import StandardScaler
 # Evaluation
 from sklearn import metrics
-from skimage.external import tifffile
+import tifffile
 from tqdm import tqdm
 
 import argparse

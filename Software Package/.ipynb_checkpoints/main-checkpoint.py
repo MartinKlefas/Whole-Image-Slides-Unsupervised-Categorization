@@ -14,7 +14,7 @@ args=parser.parse_args()
 if __name__ == '__main__':
 	print(args.datapath)
 
-	if(args.datapath): # run tile_slide.py on it
+	if(args.datapath): # run tile_sile.py on it
 		subprocess.call(["python","tile_slide.py", args.datapath])
 
 	print(" Option {}".format(args.option))
